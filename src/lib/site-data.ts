@@ -3,6 +3,8 @@ import auralisImage from "@/assets/work-auralis.jpg";
 import seneschalImage from "@/assets/work-seneschal.jpg";
 import velocityImage from "@/assets/work-velocity.jpg";
 import nexusImage from "@/assets/work-nexus.jpg";
+import lumenImage from "@/assets/work-lumen.jpg";
+import terraImage from "@/assets/work-terra.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
 
 export const assets = { heroStudio, aboutStudio };
