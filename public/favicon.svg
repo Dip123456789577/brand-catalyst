@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1117" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="markGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="64" height="64" rx="16" fill="url(#badgeGrad)" />
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="url(#ringGrad)" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- Ambient Glow -->
+  <circle cx="32" cy="32" r="24" fill="url(#glowGrad)" />
+
+  <!-- Kinetic Catalyst Energy Rings / Orbit -->
+  <circle cx="32" cy="32" r="22" stroke="url(#ringGrad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="70 40" transform="rotate(-30 32 32)" />
+
+  <!-- Dynamic Center Monogram 'K' -->
+  <path d="M22 17 V47" stroke="url(#markGrad)" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M38 18 L24 33 L41 46" stroke="url(#markGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Kinetic Energy Spark Dot -->
+  <circle cx="43" cy="18" r="3.5" fill="#f97316" />
+  <circle cx="43" cy="18" r="1.8" fill="#ffffff" />
+</svg>

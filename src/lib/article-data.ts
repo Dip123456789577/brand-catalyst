@@ -11,9 +11,13 @@ export type Article = {
   sections: { heading: string; paragraphs: string[] }[];
 };
 
+const a0 = articles[0]!;
+const a1 = articles[1]!;
+const a2 = articles[2]!;
+
 export const articleBodies: Article[] = [
   {
-    ...articles[0],
+    ...a0,
     sections: [
       {
         heading: "Cool was always a rental",
@@ -39,12 +43,12 @@ export const articleBodies: Article[] = [
     ],
   },
   {
-    ...articles[1],
+    ...a1,
     sections: [
       {
         heading: "Organic reach is engineered, not wished for",
         paragraphs: [
-          "Every brand wants earned attention; few build the conditions for it. Organic reach behaves less like luck and more like compound interest — the output of consistent, distinctive signals repeated across every surface a customer touches.",
+          "Every brand wants earned attention; few build the conditions for it. Organic reach behaves less like luck and more like compound interest — the output of consistent, distinctive signals repeated across every surfaces a customer touches.",
           "The mistake is treating brand and performance as separate budgets with separate logic. In practice, the strength of your brand signals determines the efficiency of your paid engine.",
         ],
       },
@@ -65,7 +69,7 @@ export const articleBodies: Article[] = [
     ],
   },
   {
-    ...articles[2],
+    ...a2,
     sections: [
       {
         heading: "The hack era is over",
@@ -96,7 +100,8 @@ export function getArticle(slug: string) {
   return articleBodies.find((article) => article.slug === slug);
 }
 
-export function nextArticle(slug: string) {
+export function nextArticle(slug: string): Article {
   const i = articleBodies.findIndex((article) => article.slug === slug);
-  return articleBodies[(i + 1) % articleBodies.length];
+  const nextIdx = i === -1 ? 0 : (i + 1) % articleBodies.length;
+  return articleBodies[nextIdx] ?? articleBodies[0]!;
 }

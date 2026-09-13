@@ -14,6 +14,13 @@ export type CaseStudy = {
   results: { value: string; label: string }[];
 };
 
+const p0 = projects[0]!;
+const p1 = projects[1]!;
+const p2 = projects[2]!;
+const p3 = projects[3]!;
+const p4 = projects[4]!;
+const p5 = projects[5]!;
+
 export const caseStudies: CaseStudy[] = [
   {
     slug: "auralis-sound",
@@ -22,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     services: "Brand Strategy · Digital Flagship · Performance Media",
     summary: "Reframing spatial audio as a design object for everyday life.",
-    image: projects[0].image,
+    image: p0.image,
     challenge: [
       "Auralis engineered genuinely remarkable spatial-audio hardware, but its brand spoke in spec sheets. Retail partners struggled to explain it, and direct sales lagged far behind review scores.",
       "The category was locked in a features race. Auralis needed to stop selling decibels and start owning a feeling — without alienating the audiophile community that championed it.",
@@ -49,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     services: "Global Campaign · E-commerce · Content",
     summary: "A modern language for a century of independent watchmaking.",
-    image: projects[1].image,
+    image: p1.image,
     challenge: [
       "Seneschal's craft was impeccable and its heritage genuine, yet the brand spoke to collectors who already owned its watches. A younger generation of buyers admired the product but saw the maison as someone else's heirloom.",
       "Meanwhile, e-commerce accounted for under four percent of revenue in a category where high-consideration online purchase was accelerating.",
@@ -76,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     services: "Product Design · Brand System · Growth",
     summary: "Making institutional-grade investing feel radically clear.",
-    image: projects[2].image,
+    image: p2.image,
     challenge: [
       "Velocity offered genuinely institutional-grade portfolios, but its product read as complex and intimidating. Activation stalled at onboarding, and paid acquisition costs were climbing faster than funded accounts.",
       "Competitors were louder and simpler. Velocity needed to be clearer without becoming simplistic — trust and sophistication were the product.",
@@ -103,7 +110,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     services: "Identity · Packaging · Social",
     summary: "Turning an ethical coffee collective into a daily ritual.",
-    image: projects[3].image,
+    image: p3.image,
     challenge: [
       "Nexus paid farmers well above fair-trade rates and had the loyalty of a devoted local following — but on the shelf and on the feed, it disappeared beside louder, better-funded competitors.",
       "The collective wanted national grocery distribution without sanding off the ethics and personality that made it worth distributing.",
@@ -123,13 +130,70 @@ export const caseStudies: CaseStudy[] = [
       { value: "+52%", label: "Direct-to-consumer revenue" },
     ],
   },
+  {
+    slug: "lumen-botanicals",
+    client: "Lumen Botanicals",
+    industry: "Clean Beauty & Wellness",
+    year: "2026",
+    services: "Brand Launch · Packaging · E-commerce Flagship · Performance",
+    summary:
+      "A luxury skincare launch built on clinical honesty, quiet luxury, and sustainable biotechnology.",
+    image: p4.image,
+    challenge: [
+      "The clean beauty category was flooded with celebrity vanity labels and vague greenwashing claims. Lumen had spent three years formulating active plant compounds with peer-reviewed clinical validation, but had zero brand awareness.",
+      "They needed to launch with the gravitational pull of a heritage luxury house while proving scientific efficacy to a discerning, ingredient-literate audience.",
+    ],
+    strategy: [
+      "We bypassed trend-driven aesthetics to pioneer 'Quiet Clinical' — a brand philosophy where sensory indulgence meets surgical precision.",
+      "Rather than hiding chemical formulas or relying on generic botanical watercolors, we framed clinical transparency as the ultimate mark of luxury.",
+    ],
+    execution: [
+      "We designed monolithic amber glass vessels with laser-engraved batch telemetry and minimalist typographic hierarchy. The digital flagship integrated 3D formulation explorers and interactive skin health diagnostic assessments.",
+      "An exclusive, waitlist-driven launch campaign seeded editorial features across Vogue and Wallpaper*, followed by high-consideration paid search and UGC whitelisting with dermatologist creators.",
+    ],
+    results: [
+      { value: "+142%", label: "First-quarter revenue vs target" },
+      { value: "3.8×", label: "Average return on ad spend (ROAS)" },
+      { value: "+85%", label: "Social community engagement rate" },
+      { value: "-32%", label: "Customer acquisition cost" },
+    ],
+  },
+  {
+    slug: "terra-mobility",
+    client: "Terra Mobility",
+    industry: "Urban Mobility & Tech",
+    year: "2026",
+    services: "Global Campaign · Product Identity · Interactive Flagship · Paid Media",
+    summary:
+      "Positioning urban micro-mobility as an object of desire, high design, and zero compromise.",
+    image: p5.image,
+    challenge: [
+      "Urban micro-mobility products were widely viewed as utilitarian gadgets or disposable rental commodities. Terra engineered an ultra-premium lightweight carbon-fiber commuter vehicle, but risked being bucketed alongside budget e-bikes.",
+      "High price point ($3,800+) demanded an emotional narrative that justified a premium consumer tech and lifestyle purchase.",
+    ],
+    strategy: [
+      "We reframed urban commuting from a stressful chore into a sensory sanctuary — 'Reclaim the Streetscape.'",
+      "We positioned Terra alongside high-end automotive design and architectural minimalist fashion, speaking directly to design directors, architects, and forward-thinking urban professionals.",
+    ],
+    execution: [
+      "A cinematic launch film captured the surreal tranquility of early morning dawn rides in Tokyo, Milan, and New York. The interactive flagship featured an immersive 3D real-time bike customizer with WebGL lighting physics.",
+      "A synchronized multi-city VIP test-ride tour, paired with geo-fenced high-intent digital campaigns, drove record-shattering pre-order velocity.",
+    ],
+    results: [
+      { value: "+148%", label: "Pre-order volume in 30 days" },
+      { value: "4.2×", label: "Organic media reach multiplier" },
+      { value: "+94%", label: "Global dealer partnership signups" },
+      { value: "18.4M", label: "Global campaign impressions" },
+    ],
+  },
 ];
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((study) => study.slug === slug);
 }
 
-export function nextCaseStudy(slug: string) {
+export function nextCaseStudy(slug: string): CaseStudy {
   const i = caseStudies.findIndex((study) => study.slug === slug);
-  return caseStudies[(i + 1) % caseStudies.length];
+  const nextIdx = i === -1 ? 0 : (i + 1) % caseStudies.length;
+  return caseStudies[nextIdx] ?? caseStudies[0]!;
 }

@@ -661,7 +661,7 @@ Console errors
 
 The final website should feel like a high-end digital marketing agency website that could actually be launched publicly and used to acquire clients.
 
-It should look expensive, modern, interactive, trustworthy, and memorable.                                                                                                                                                                                                                                                                                                                                                                                                       Now perform a complete production-quality UI/UX audit of the website you just built.
+It should look expensive, modern, interactive, trustworthy, and memorable. Now perform a complete production-quality UI/UX audit of the website you just built.
 
 Do not completely redesign the website.
 
@@ -709,19 +709,9 @@ The final result should look like it was designed and developed by a professiona
 
 Do not add unnecessary features just to make the website complicated. Prioritize quality, usability, interaction, and conversion.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7b544241-b21f-46b8-9505-63a18f8acb22).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Prefer working locally? You need Node.js and npm:
 
 ```sh
 git clone <this-repository-url>

@@ -10,13 +10,15 @@ export const Route = createFileRoute("/insights/$slug")({
     return article;
   },
   head: ({ loaderData }) => ({
-    meta: loaderData ? [
-      { title: `${loaderData.title} | KINETIC Atelier` },
-      { name: "description", content: loaderData.description },
-      { property: "og:title", content: loaderData.title },
-      { property: "og:description", content: loaderData.description },
-      { property: "og:type", content: "article" },
-    ] : [],
+    meta: loaderData
+      ? [
+          { title: `${loaderData.title} | KINETIC Atelier` },
+          { name: "description", content: loaderData.description },
+          { property: "og:title", content: loaderData.title },
+          { property: "og:description", content: loaderData.description },
+          { property: "og:type", content: "article" },
+        ]
+      : [],
   }),
   component: ArticlePage,
 });
@@ -30,28 +32,90 @@ function ArticlePage() {
         <div className="site-container">
           <div className="prose">
             <Reveal>
-              <Link to="/insights" style={{ display: "inline-flex", alignItems: "center", gap: ".5rem", color: "var(--muted-foreground)", textDecoration: "none", font: "500 .68rem var(--font-mono)", textTransform: "uppercase", marginBottom: "2rem" }}>
-                <ArrowLeft size={14} aria-hidden /> All insights
-              </Link>
+              <div className="case-breadcrumb" style={{ marginBottom: "2rem" }}>
+                <Link to="/insights" className="back-link">
+                  <ArrowLeft size={14} aria-hidden /> All Essays
+                </Link>
+                <span className="separator">/</span>
+                <span className="current">{article.category}</span>
+              </div>
               <span className="eyebrow">{article.category}</span>
-              <h1 className="section-title" style={{ fontSize: "clamp(2.2rem,4.5vw,4rem)", marginTop: "1rem" }}>{article.title}</h1>
-              <div className="article-meta"><span>{article.date}</span><span>{article.time} read</span><span>KINETIC Atelier</span></div>
+              <h1
+                className="section-title"
+                style={{ fontSize: "clamp(2.4rem, 4.8vw, 4.4rem)", marginTop: "1rem" }}
+              >
+                {article.title}
+              </h1>
+              <div className="article-meta" style={{ margin: "1.5rem 0 2.5rem" }}>
+                <span className="meta-pill">{article.date}</span>
+                <span className="meta-pill">{article.time} read</span>
+                <span className="meta-pill">Published by KINETIC Atelier</span>
+              </div>
             </Reveal>
           </div>
-          <Reveal><img className="article-hero-image" src={article.image} alt={`Editorial image for “${article.title}”`} width={1280} height={960} /></Reveal>
+          <Reveal>
+            <div
+              style={{
+                borderRadius: 12,
+                overflow: "hidden",
+                border: "1px solid var(--border)",
+                marginBottom: "3.5rem",
+              }}
+            >
+              <img
+                className="article-hero-image"
+                src={article.image}
+                alt={`Editorial visual for “${article.title}”`}
+                width={1920}
+                height={1080}
+                style={{ marginBottom: 0, width: "100%", maxHeight: 640, objectFit: "cover" }}
+              />
+            </div>
+          </Reveal>
           <div className="prose">
-            <Reveal><p style={{ color: "var(--ink-soft)", fontSize: "1.25rem", lineHeight: 1.6, fontWeight: 500 }}>{article.description}</p></Reveal>
+            <Reveal>
+              <p
+                style={{
+                  color: "var(--foreground)",
+                  fontSize: "clamp(1.2rem, 1.8vw, 1.45rem)",
+                  lineHeight: 1.6,
+                  fontWeight: 500,
+                  borderLeft: "3px solid var(--primary)",
+                  paddingLeft: "1.5rem",
+                  margin: "0 0 3rem",
+                }}
+              >
+                {article.description}
+              </p>
+            </Reveal>
             {article.sections.map((section) => (
               <Reveal key={section.heading}>
-                <h2>{section.heading}</h2>
-                {section.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+                <h2 style={{ marginTop: "2.5rem", marginBottom: "1rem" }}>{section.heading}</h2>
+                {section.paragraphs.map((p, i) => (
+                  <p key={i} style={{ marginTop: i > 0 ? "1rem" : undefined }}>
+                    {p}
+                  </p>
+                ))}
               </Reveal>
             ))}
             <Reveal>
-              <div style={{ marginTop: "4rem" }}>
-                <Link to="/insights/$slug" params={{ slug: next.slug }} className="next-link" aria-label={`Next article: ${next.title}`}>
-                  <div><span className="eyebrow">Next article</span><h3 style={{ fontSize: "clamp(1.3rem,2.4vw,2rem)" }}>{next.title}</h3></div>
-                  <ArrowRight size={28} aria-hidden style={{ color: "var(--primary)", flexShrink: 0 }} />
+              <div className="next-case-study-wrap" style={{ marginTop: "5rem" }}>
+                <Link
+                  to="/insights/$slug"
+                  params={{ slug: next.slug }}
+                  className="next-link"
+                  aria-label={`Next article: ${next.title}`}
+                >
+                  <div>
+                    <span className="eyebrow">Next Strategic Essay</span>
+                    <h3 style={{ fontSize: "clamp(1.5rem, 2.6vw, 2.2rem)" }}>{next.title}</h3>
+                    <span className="next-sub">
+                      {next.category} · {next.time} read
+                    </span>
+                  </div>
+                  <div className="next-arrow-circle" aria-hidden>
+                    <ArrowRight size={24} />
+                  </div>
                 </Link>
               </div>
             </Reveal>
