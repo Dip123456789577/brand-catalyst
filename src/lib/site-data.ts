@@ -3,6 +3,8 @@ import auralisImage from "@/assets/work-auralis.jpg";
 import seneschalImage from "@/assets/work-seneschal.jpg";
 import velocityImage from "@/assets/work-velocity.jpg";
 import nexusImage from "@/assets/work-nexus.jpg";
+import lumenImage from "@/assets/work-lumen.jpg";
+import terraImage from "@/assets/work-terra.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
 
 export const assets = { heroStudio, aboutStudio };
@@ -22,6 +24,8 @@ export const projects = [
   { slug: "seneschal-horology", client: "Seneschal Horology", industry: "Luxury", services: "Global Campaign · E-commerce", description: "A modern language for a century of independent watchmaking.", result: "2.7× conversion rate", image: seneschalImage, accent: "Case Study 02" },
   { slug: "velocity-capital", client: "Velocity Capital", industry: "Fintech", services: "Product Design · Brand System", description: "Making institutional-grade investing feel radically clear.", result: "+91% funded accounts", image: velocityImage, accent: "Case Study 03" },
   { slug: "nexus-coffee", client: "Nexus Coffee", industry: "Hospitality", services: "Identity · Packaging · Social", description: "Turning an ethical coffee collective into a daily ritual.", result: "+63% repeat orders", image: nexusImage, accent: "Case Study 04" },
+  { slug: null, client: "Lumen Botanicals", industry: "Beauty", services: "Brand Launch · E-commerce", description: "A skincare launch built on clinical honesty and quiet luxury.", result: "Sold out first drop", image: lumenImage, accent: "Project 05" },
+  { slug: null, client: "Terra Mobility", industry: "Mobility", services: "Campaign · Content · Retail", description: "Positioning urban e-mobility as an object of desire, not compromise.", result: "+148% pre-orders", image: terraImage, accent: "Project 06" },
 ];
 
 export const articles = [

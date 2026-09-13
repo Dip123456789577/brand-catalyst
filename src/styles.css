@@ -67,3 +67,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media(min-width:1180px){.availability{display:flex}.header-inner{grid-template-columns:auto auto 1fr auto}.project-grid{column-gap:2rem}}
 @media(pointer:fine){.cursor-dot,.cursor-ring{display:block;position:fixed;z-index:1000;left:-3px;top:-3px;pointer-events:none;border-radius:50%}.cursor-dot{width:6px;height:6px;background:var(--primary)}.cursor-ring{left:-19px;top:-19px;width:38px;height:38px;border:1px solid color-mix(in oklab,var(--foreground) 45%,transparent);transition:width .2s,height .2s,left .2s,top .2s,background .2s}.cursor-ring span{display:none}.cursor-ring.active{left:-28px;top:-28px;width:56px;height:56px;background:color-mix(in oklab,var(--primary) 12%,transparent);border-color:var(--primary)}.cursor-ring.active span{display:block;text-align:center;padding-top:20px;font:600 8px var(--font-mono);text-transform:uppercase}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee,.hero-media img,.reveal{animation:none!important}.project-media img,.service-row,.mobile-menu{transition:none!important}.cursor-dot,.cursor-ring{display:none!important}}
+/* Service accordion: accessible inner toggle */
+.service-toggle{display:grid;grid-template-columns:2.5rem 1fr auto;gap:1rem;align-items:center;grid-column:1/-1;background:none;border:0;padding:0;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.service-toggle:focus-visible{outline:3px solid color-mix(in oklab,var(--primary) 40%,transparent);outline-offset:4px}
+.service-toggle h3{font:600 clamp(1.3rem,2.4vw,2.2rem) var(--font-display)}
+.service-toggle svg{transition:transform .3s}
+.service-row.open .service-toggle svg{transform:rotate(45deg)}
+.dots button i{width:24px;height:2px;background:var(--border);display:block;transition:background .25s}
+.dots button i.active{background:var(--primary)}
+.filter-btn{padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--ink-soft);font:600 .68rem var(--font-mono);text-transform:uppercase;cursor:pointer;transition:.25s}
+.filter-btn:hover{border-color:var(--foreground);color:var(--foreground)}
+.filter-btn.active{background:var(--foreground);border-color:var(--foreground);color:var(--background)}
+.article-feature{display:grid;gap:1.5rem;margin-bottom:1rem}
+@media(min-width:768px){.article-feature{grid-template-columns:1.2fr .8fr;align-items:center}}
+.article-feature img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--border)}
+.article-feature h2{margin:.8rem 0;font:600 clamp(1.9rem,3.5vw,3.2rem)/1.05 var(--font-display)}
+.article-feature p{color:var(--muted-foreground)}
+.article-feature footer{display:flex;gap:1.5rem;margin-top:1.25rem;font:500 .65rem var(--font-mono);text-transform:uppercase;color:var(--muted-foreground)}
+.next-link{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:2.5rem 0;border-top:1px solid var(--border);color:inherit;text-decoration:none;transition:padding .25s}
+.next-link:hover{padding-inline:1rem}
+.next-link h3{font:600 clamp(1.6rem,3vw,2.8rem) var(--font-display)}
+.article-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin:1.25rem 0 3rem;color:var(--muted-foreground);font:500 .68rem var(--font-mono);text-transform:uppercase}
